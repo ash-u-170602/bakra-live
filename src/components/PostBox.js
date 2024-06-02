@@ -1,17 +1,17 @@
 import React from 'react';
-import '../styles/PostBox.css';
+import '../styles/PostBox.css'; // Import CSS for styling
 
-const PostBox = ({ category, imgSrc, postLink, title, date, description, profileImg, profileName }) => {
+const PostBox = ({ category, imgSrc, postLink, breed, price, weight, location }) => {
     return (
         <div className={`post-box ${category}`}>
             <img src={imgSrc} alt="post" className="post-img" />
             <h2 className="category">{category}</h2>
-            <a href={postLink} className="post-title">{title}</a>
-            <span className="post-date">{date}</span>
-            <p className="post-description">{description}</p>
+            <a href={postLink} className="post-title">{breed}</a>
+            <span className="post-date">Price: {price}</span>
+            <span className="post-date">Weight: {weight}</span>
+            <p className="post-description">Location: {location}</p>
             <div className="profile">
-                <img src={profileImg} alt="profile" className="profile-img" />
-                <span className="profile-name">{profileName}</span>
+                <button className="buy-now-button">Buy Now</button> {/* Add the button */}
             </div>
         </div>
     );
