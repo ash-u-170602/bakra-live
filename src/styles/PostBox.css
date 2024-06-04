@@ -1,8 +1,18 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
 .post-box {
     background: var(--bg-color);
     box-shadow: 0 4px 14px hsl(355deg 25% 15% / 10%);
     padding: 15px;
     border-radius: 0.5rem;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(900.333% - 20px);
+    box-sizing: border-box;
 }
 
 .post-img {
@@ -43,7 +53,7 @@
     font-size: 0.9rem;
     line-height: 1.5rem;
     margin: 5px 0 10px;
-    /* To remain in 3 lines */
+
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
