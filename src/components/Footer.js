@@ -1,27 +1,15 @@
 import React from "react";
 import '../styles/Footer.css';
+import logo from '../images/logo.webp'; // Adjust the path as necessary
 
 const Footer = () => {
   return (
-    <div class="footer container">
-      <p>&#169; Bakra.live All Rights Reserved</p>
-
-      <div class="social">
-        <a href="">
-          <i class="bx bxl-instagram"></i>
-        </a>
-
-        <a href="">
-          <i class="bx bxl-twitter"></i>
-        </a>
-
-        <a href="">
-          <i class="bx bxl-linkedin"></i>
-        </a>
-
-        <a href="">
-          <i class="bx bx-envelope"></i>
-        </a>
+    <div className="footer">
+      <div className="footer-container">
+        <img src={logo} alt="Logo" className="footer-logo" />
+        <a href="mailto:contact@bakra.live" className="footer-email">contact@bakra.live</a>
+        <p className="footer-catchy-line">Celebrate Eid-ul-Adha with the Best, Find Your Perfect Qurbani Goat Today!</p>
+        <p className="footer-text">© 2024 Bakra.live. All rights reserved.</p>
       </div>
     </div>
   );
