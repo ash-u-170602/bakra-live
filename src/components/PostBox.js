@@ -1,18 +1,31 @@
-import React from 'react';
-import '../styles/PostBox.css'; // Import CSS for styling
+import React from "react";
+import "../styles/PostBox.css";
 
-const PostBox = ({ category, imgSrc, postLink, breed, price, weight, location }) => {
+const PostBox = ({
+    id,
+    uploadedBy,
+    price,
+    imagesUrl,
+    category,
+    weight,
+    sellerNumber,
+    breed,
+    location,
+    isAvailable
+}) => {
     return (
-        <div className={`post-box ${category}`}>
-            <img src={imgSrc} alt="post" className="post-img" />
-            <h2 className="category">{category}</h2>
-            <a href={postLink} className="post-title">{breed}</a>
-            <span className="post-date">Price: {price}</span>
-            <span className="post-date">Weight: {weight}</span>
-            <p className="post-description">Location: {location}</p>
-            <div className="profile">
-                <button className="buy-now-button">Buy Now</button> {/* Add the button */}
+        <div className="post-box">
+            <img src={imagesUrl[0]} alt={`${breed}`} className="post-image" />
+            <div className="post-details">
+                <h2>{breed}</h2>
+                <p>Price: {price}</p>
+                <p>Weight: {weight}</p>
+                <p>Location: {location}</p>
+                <p>Seller Number: {sellerNumber}</p>
+                <p>Uploaded By: {uploadedBy}</p>
+                <p>Available: {isAvailable ? "Yes" : "No"}</p>
             </div>
+            <a href={`post-page-${id}.html`} className="post-link">View Post</a>
         </div>
     );
 };
