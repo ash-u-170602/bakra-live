@@ -17,7 +17,7 @@ const Header = () => {
     return (
         <header>
             <div className="nav container">
-                <a className="logo">Bakra<span>.live</span></a>
+                <a href="https://bakra.live" className="logo">Bakra<span>.live</span></a>
             </div>
         </header>
     );
