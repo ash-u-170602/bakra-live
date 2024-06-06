@@ -35,7 +35,6 @@ const PostBox = ({
                 <p>Price: {price}</p>
                 <p>Weight: {weight}</p>
                 <p>Location: {location}</p>
-                <p>Available: {isAvailable ? "Yes" : "No"}</p>
             </div>
             <button className="buy-now-button" onClick={sendMessage} disabled={!isAvailable}>
                 Buy Now
