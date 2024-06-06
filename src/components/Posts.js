@@ -13,12 +13,10 @@ const Posts = ({ filter }) => {
         const response = await axios.get("https://bakra-api.onrender.com/user/view");
         const formattedData = response.data.map((post) => ({
           id: post.id,
-          uploadedBy: post.uploaded_by,
           price: `₹${post.Price}`,
           imagesUrl: post.images_url && post.images_url.length > 0 ? post.images_url : imageGoat,
           category: post.type,
           weight: `${post.Weight}KG`,
-          sellerNumber: post.Seller_number,
           breed: post.breed,
           location: post.Location,
           isAvailable: post.is_available,

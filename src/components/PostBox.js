@@ -1,31 +1,47 @@
-import React from "react";
+import React, { useState } from 'react';
 import "../styles/PostBox.css";
+import ImageModal from './ImageModal';
 
 const PostBox = ({
     id,
-    uploadedBy,
     price,
     imagesUrl,
     category,
     weight,
-    sellerNumber,
     breed,
     location,
-    isAvailable
+    isAvailable,
 }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const sendMessage = () => {
+        const message = `Hello, I am interested in your ${breed} ${category} which is priced at ${price}. Please contact me.
+        Id=${id}`;
+        const whatsappUrl = `https://wa.me/918287093870?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
     return (
         <div className="post-box">
-            <img src={imagesUrl[0]} alt={`${breed}`} className="post-image" />
+            <div className="image-container">
+                <img src={imagesUrl[0]} alt={`${breed}`} className="post-img" />
+                {!isAvailable && <div className="sold-out-overlay">Sold Out</div>}
+            </div>
             <div className="post-details">
-                <h2>{breed}</h2>
+                <h2 className="post-title">{breed}</h2>
                 <p>Price: {price}</p>
                 <p>Weight: {weight}</p>
                 <p>Location: {location}</p>
-                <p>Seller Number: {sellerNumber}</p>
-                <p>Uploaded By: {uploadedBy}</p>
                 <p>Available: {isAvailable ? "Yes" : "No"}</p>
             </div>
-            <a href={`post-page-${id}.html`} className="post-link">View Post</a>
+            <button className="buy-now-button" onClick={sendMessage} disabled={!isAvailable}>
+                Buy Now
+            </button>
+            <button className="view-images-button" onClick={openModal}>View Images</button>
+            <ImageModal images={imagesUrl} isOpen={modalIsOpen} onRequestClose={closeModal} />
         </div>
     );
 };
