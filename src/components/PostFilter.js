@@ -19,23 +19,23 @@ const PostFilter = ({ setFilter }) => {
                 All
             </span>
             <span
-                className={`filter-item ${active === 'goat' ? 'active-filter' : ''}`}
-                onClick={() => handleFilterClick('goat')}
-                data-filter="goat"
+                className={`filter-item ${active === 'Goat' ? 'active-filter' : ''}`}
+                onClick={() => handleFilterClick('Goat')}
+                data-filter="Goat"
             >
                 Goat
             </span>
             <span
-                className={`filter-item ${active === 'sheep' ? 'active-filter' : ''}`}
-                onClick={() => handleFilterClick('sheep')}
-                data-filter="sheep"
+                className={`filter-item ${active === 'Sheep' ? 'active-filter' : ''}`}
+                onClick={() => handleFilterClick('Sheep')}
+                data-filter="Sheep"
             >
                 Sheep
             </span>
             <span
-                className={`filter-item ${active === 'buffalo' ? 'active-filter' : ''}`}
-                onClick={() => handleFilterClick('buffalo')}
-                data-filter="buffalo"
+                className={`filter-item ${active === 'Buffalo' ? 'active-filter' : ''}`}
+                onClick={() => handleFilterClick('Buffalo')}
+                data-filter="Buffalo"
             >
                 Buffalo
             </span>
