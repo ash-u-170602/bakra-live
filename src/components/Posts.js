@@ -13,7 +13,7 @@ const Posts = ({ filter }) => {
         const response = await axios.get("https://bakra-api.onrender.com/user/view");
         const formattedData = response.data.map((post) => ({
           id: post.id,
-          price: `₹${post.price}`,
+          price: `₹${post.profit}`,
           imagesUrl: post.images_url && post.images_url.length > 0 ? post.images_url : imageGoat,
           category: post.type,
           weight: `${post.weight}KG`,
@@ -21,7 +21,10 @@ const Posts = ({ filter }) => {
           location: post.location,
           isAvailable: post.is_available,
         }));
-        setPosts(formattedData);
+        // Sort the formatted data such that posts with isAvailable === false are at the end
+        const sortedData = formattedData.sort((a, b) => b.isAvailable - a.isAvailable);
+
+        setPosts(sortedData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
